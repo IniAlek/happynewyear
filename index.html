@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Tahun Baru 2024</title>
+  <style>
+    /* Gaya untuk tampilan halaman */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      position: relative;
+    }
+    /* Gaya untuk pesan */
+    .message {
+      text-align: center;
+      font-size: 2em;
+      color: #ff6347;
+      font-weight: bold;
+      z-index: 1;
+    }
+    .ornaments {
+      font-size: 1.2em;
+      color: #00bfff;
+      margin-top: 20px;
+    }
+    /* Video kamera di belakang */
+    #videoElement {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    Selamat Tahun Baru 2024!
+    <div class="ornaments">
+      🎉🎆✨ Semoga tahun baru membawa kebahagiaan dan kesuksesan! Dan JANGAN LUPA SKRIPSIMU AWOKWKWK ✨🎆🎉
+    </div>
+  </div>
+
+  <!-- Elemen video untuk kamera -->
+  <video id="videoElement" autoplay></video>
+
+  <script>
+    // Mengakses kamera
+    async function setupCamera() {
+      try {
+        // Meminta akses ke kamera
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        const videoElement = document.getElementById('videoElement');
+        videoElement.srcObject = stream;
+      } catch (error) {
+        console.error('Akses kamera gagal:', error);
+      }
+    }
+
+    // Menjalankan fungsi untuk setup kamera
+    setupCamera();
+  </script>
+</body>
+</html>
